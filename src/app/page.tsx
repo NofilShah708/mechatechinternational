@@ -12,158 +12,147 @@ export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.history.scrollRestoration = 'manual';
+    if (typeof window !== "undefined") {
+      window.history.scrollRestoration = "manual";
       window.scrollTo(0, 0);
     }
   }, []);
 
   return (
     <main className="relative min-h-screen bg-black">
-      {/* Cinematic Loading Overlay */}
       <LoadingScreen onStarted={() => setIsLoaded(true)} />
-
-      {/* Background Music */}
       <AudioPlayer url="https://files.catbox.moe/g8l0jm.mp3" />
-
-      {/* Auto-scroll button */}
       <AutoScrollButton />
 
-      {/* Fixed 3D Background */}
       <div className="fixed inset-0 z-0">
         <ModelViewer />
       </div>
 
-      {/* Fixed Top Right GitHub Link */}
-      <div className={cn(
-        "fixed top-8 right-8 z-50 transition-all duration-1000 delay-1000",
-        isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
-      )}>
-        <a 
-          href="https://github.com/i-am-dhruv" 
-          target="_blank" 
+      <div
+        className={cn(
+          "fixed top-8 right-8 z-50 transition-all duration-1000 delay-1000",
+          isLoaded ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
+        )}
+      >
+        <a
+          href="https://github.com/i-am-dhruv"
+          target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center gap-4 px-5 py-2.5 bg-black/40 backdrop-blur-2xl rounded-full border border-white/10 hover:bg-white/10 hover:border-white/20 hover:scale-105 transition-all duration-500 shadow-2xl"
+          className="group flex items-center gap-4 rounded-full border border-white/10 bg-black/40 px-5 py-2.5 shadow-2xl backdrop-blur-2xl transition-all duration-500 hover:scale-105 hover:border-white/20 hover:bg-white/10"
         >
-          <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40 group-hover:text-white transition-colors">
+          <span className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40 transition-colors group-hover:text-white">
             Developer
           </span>
-          <div className="w-[1px] h-4 bg-white/10 group-hover:bg-white/30 transition-colors" />
-          <Github className="w-5 h-5 text-white/60 group-hover:text-white group-hover:rotate-[360deg] transition-all duration-1000" />
+          <div className="h-4 w-[1px] bg-white/10 transition-colors group-hover:bg-white/30" />
+          <Github className="h-5 w-5 text-white/60 transition-all duration-1000 group-hover:rotate-[360deg] group-hover:text-white" />
         </a>
       </div>
 
-      {/* Overlay Content Sections - Visible only when loaded */}
-      <div className={cn(
-        "relative z-10 pointer-events-none transition-opacity duration-1000 delay-500",
-        isLoaded ? "opacity-100" : "opacity-0"
-      )}>
-        {/* Hero Section */}
-        <header className="h-screen flex flex-col items-center justify-center p-8">
-          <div className="text-center space-y-4">
-            <h1 className="text-6xl md:text-9xl font-black text-white tracking-tighter uppercase drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)]">
-              The Hornet
+      <div
+        className={cn(
+          "pointer-events-none relative z-10 transition-opacity duration-1000 delay-500",
+          isLoaded ? "opacity-100" : "opacity-0"
+        )}
+      >
+        <header className="flex h-screen flex-col items-center justify-center p-8">
+          <div className="space-y-4 text-center">
+            <h1 className="text-6xl font-black uppercase tracking-tighter text-white drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)] md:text-9xl">
+              MechaTech International
             </h1>
-            <p className="text-xl md:text-2xl text-white font-medium uppercase tracking-[0.4em] animate-pulse">
-             PRINCESS OF HALLOWNEST
+            <p className="text-xl font-medium uppercase tracking-[0.4em] text-white md:text-2xl animate-pulse">
+              Residential • Commercial • Industrial
             </p>
           </div>
           <div className="absolute bottom-12 flex flex-col items-center gap-2 opacity-60">
             <p className="text-[10px] uppercase tracking-[0.3em] text-white">Scroll to Sequence</p>
-            <div className="w-px h-12 bg-gradient-to-b from-primary to-transparent" />
+            <div className="h-12 w-px bg-gradient-to-b from-primary to-transparent" />
           </div>
         </header>
 
-        {/* Section 1: Identity */}
-        <section className="h-screen flex items-center justify-start p-8 md:p-32">
-          <div className="max-w-xl bg-white/[0.03] backdrop-blur-[10px] p-12 rounded-[3rem] border border-white/10 shadow-2xl pointer-events-auto transform transition-all hover:scale-105 hover:bg-white/[0.06] duration-700 translate-y-12">
-            <span className="text-white text-xs font-bold tracking-widest uppercase mb-4 block">Identity & Origins</span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">The Weaver's Daughter</h2>
-            <p className="text-lg text-white/70 leading-relaxed font-light">
-            Born of shadows and silk. She is the fierce, silent guardian of Hallownest, protecting its deepest secrets from those who wander in the dark.
+        <section className="flex h-screen items-center justify-start p-8 md:p-32">
+          <div className="max-w-xl translate-y-12 rounded-[3rem] border border-white/10 bg-white/[0.03] p-12 shadow-2xl backdrop-blur-[10px] transition-all duration-700 hover:scale-105 hover:bg-white/[0.06] pointer-events-auto">
+            <span className="mb-4 block text-xs font-bold uppercase tracking-widest text-white">Company Profile</span>
+            <h2 className="mb-6 text-4xl font-bold leading-tight text-white md:text-5xl">Engineers • Manufacturers • Contractors</h2>
+            <p className="text-lg font-light leading-relaxed text-white/70">
+              Founded to deliver dependable Heating, Ventilation, and Air-Conditioning solutions, MechaTech International serves residential, commercial, and industrial projects with quality, precision, and proven field experience.
             </p>
           </div>
         </section>
 
-        {/* Section 2: Combat */}
-        <section className="h-screen flex items-center justify-end p-8 md:p-32 text-right">
-          <div className="max-w-xl bg-white/[0.03] backdrop-blur-[10px] p-12 rounded-[3rem] border border-white/10 shadow-2xl pointer-events-auto transform transition-all hover:scale-105 hover:bg-white/[0.06] duration-700">
-            <span className="text-white text-xs font-bold tracking-widest uppercase mb-4 block">Combat & Agility</span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">Needle and Thread</h2>
-            <p className="text-lg text-white/70 leading-relaxed font-light">
-            A deadly, acrobatic dancer in combat. Wielding a needle and unbound silk, her strikes are swift, precise, and absolutely lethal.
+        <section className="flex h-screen items-center justify-end p-8 text-right md:p-32">
+          <div className="max-w-xl rounded-[3rem] border border-white/10 bg-white/[0.03] p-12 shadow-2xl backdrop-blur-[10px] transition-all duration-700 hover:scale-105 hover:bg-white/[0.06] pointer-events-auto">
+            <span className="mb-4 block text-xs font-bold uppercase tracking-widest text-white">Core Services</span>
+            <h2 className="mb-6 text-4xl font-bold leading-tight text-white md:text-5xl">HVAC Systems & Air Management</h2>
+            <p className="text-lg font-light leading-relaxed text-white/70">
+              From air handling units and fresh-air systems to industrial ventilation, exhaust fans, filtration, ducting, and cooling solutions, we provide complete, end-to-end climate and airflow performance.
             </p>
           </div>
         </section>
 
-        {/* Section 3: Lore */}
-        <section className="h-screen flex items-center justify-center p-8 md:p-32 text-center">
-          <div className="max-w-2xl bg-white/[0.04] backdrop-blur-[10px] p-16 rounded-[3.5rem] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] pointer-events-auto transform transition-all hover:scale-105 duration-700">
-            <span className="text-white text-xs font-bold tracking-widest uppercase mb-4 block">Personality & Lore</span>
-            <h2 className="text-5xl md:text-6xl font-bold mb-8 text-white tracking-tight">Driven by Duty</h2>
-            <p className="text-xl text-white/60 leading-relaxed font-light">
-            Uncompromising and mysterious. She tests the resolve of every traveler, her loyalty tied solely to the survival of her dying world.
+        <section className="flex h-screen items-center justify-center p-8 text-center md:p-32">
+          <div className="max-w-2xl rounded-[3.5rem] border border-white/10 bg-white/[0.04] p-16 shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-[10px] transition-all duration-700 hover:scale-105 pointer-events-auto">
+            <span className="mb-4 block text-xs font-bold uppercase tracking-widest text-white">Facilities</span>
+            <h2 className="mb-8 text-5xl font-bold tracking-tight text-white md:text-6xl">Workshop + Office Capability</h2>
+            <p className="text-xl font-light leading-relaxed text-white/60">
+              Our main office in DHA Phase-V and fully equipped workshop in SITE support design coordination, fabrication, assembly, and on-site execution for every project stage.
             </p>
           </div>
         </section>
 
-        {/* Section 4: Future */}
-        <section className="h-screen flex items-center justify-start p-8 md:p-32">
-          <div className="max-w-xl bg-white/[0.03] backdrop-blur-[10px] p-12 rounded-[3rem] border border-white/10 shadow-2xl pointer-events-auto transform transition-all hover:scale-105 hover:bg-white/[0.06] duration-700">
-            <span className="text-white text-xs font-bold tracking-widest uppercase mb-4 block">The Upcoming Journey</span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">Bound for Pharloom</h2>
-            <p className="text-lg text-white/70 leading-relaxed font-light">
-            Captured and taken to a distant land ruled by silk and song. A new journey awaits as she fights to ascend a haunted, shining citadel.
+        <section className="flex h-screen items-center justify-start p-8 md:p-32">
+          <div className="max-w-xl rounded-[3rem] border border-white/10 bg-white/[0.03] p-12 shadow-2xl backdrop-blur-[10px] transition-all duration-700 hover:scale-105 hover:bg-white/[0.06] pointer-events-auto">
+            <span className="mb-4 block text-xs font-bold uppercase tracking-widest text-white">Trusted Work</span>
+            <h2 className="mb-6 text-4xl font-bold leading-tight text-white md:text-5xl">Projects Across Pakistan</h2>
+            <p className="text-lg font-light leading-relaxed text-white/70">
+              MechaTech has supplied and installed HVAC equipment and systems across healthcare, pharmaceutical, hospitality, textile, power, and industrial sectors including hospitals, laboratories, factories, and commercial facilities.
             </p>
           </div>
         </section>
 
-        {/* Section 5: The Masterpiece */}
-        <section className="h-[150vh] flex flex-col items-center justify-center p-8 md:p-32 text-center">
+        <section className="flex h-[150vh] flex-col items-center justify-center p-8 text-center md:p-32">
           <div className="max-w-4xl space-y-12 pointer-events-auto">
-            <h2 className="text-6xl md:text-8xl font-black text-white uppercase tracking-tighter drop-shadow-2xl">
-             THE SONG OF SILK<span className="text-white">.</span>
+            <h2 className="text-6xl font-black uppercase tracking-tighter text-white drop-shadow-2xl md:text-8xl">
+              The Future of Comfort<span className="text-white">.</span>
             </h2>
-            <p className="text-xl md:text-2xl text-white/50 max-w-2xl mx-auto leading-relaxed">
-             Discover the legacy of the fiercest warrior.
+            <p className="mx-auto max-w-2xl text-xl text-white/50 md:text-2xl">
+              Delivering engineered airflow solutions for every environment we serve.
             </p>
-            <div className="pt-8 flex justify-center">
-              <a 
-                href="https://www.hollowknight.com/"
+            <div className="flex justify-center pt-8">
+              <a
+                href="mailto:mti_hvac98@yahoo.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative inline-block px-12 py-5 bg-black/95 text-white font-bold uppercase tracking-[0.4em] rounded-full border border-white/10 overflow-hidden transition-all duration-500 hover:scale-110 hover:border-white/40 hover:shadow-[0_0_60px_rgba(255,255,255,0.2),0_0_100px_rgba(255,255,255,0.1)]"
+                className="group relative inline-block overflow-hidden rounded-full border border-white/10 bg-black/95 px-12 py-5 font-bold uppercase tracking-[0.4em] text-white transition-all duration-500 hover:scale-110 hover:border-white/40 hover:shadow-[0_0_60px_rgba(255,255,255,0.2),0_0_100px_rgba(255,255,255,0.1)]"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent group-hover:from-white/10 transition-colors duration-500" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2)_0%,transparent_70%)] opacity-40 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500" />
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4/5 h-[2px] bg-gradient-to-r from-transparent via-white/50 to-transparent group-hover:via-white/80 transition-all duration-500" />
-                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12" />
-                <span className="relative z-10 text-xl drop-shadow-[0_0_15px_rgba(255,255,255,0.8)] group-hover:drop-shadow-[0_0_25px_rgba(255,255,255,1)] group-hover:scale-300 transition-all duration-300">
-                  SHAW!
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent transition-colors duration-500 group-hover:from-white/10" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.2)_0%,transparent_70%)] opacity-40 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100" />
+                <div className="absolute left-1/2 top-0 h-[2px] w-4/5 -translate-x-1/2 bg-gradient-to-r from-transparent via-white/50 to-transparent transition-all duration-500 group-hover:via-white/80" />
+                <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 transition-transform duration-1000 ease-in-out group-hover:translate-x-full" />
+                <span className="relative z-10 text-xl drop-shadow-[0_0_15px_rgba(255,255,255,0.8)] transition-all duration-300 group-hover:scale-300 group-hover:drop-shadow-[0_0_25px_rgba(255,255,255,1)]">
+                  Get a Quote
                 </span>
               </a>
             </div>
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="pt-72 pb-20 px-8 text-center space-y-8 pointer-events-auto bg-transparent">
-          <div className="flex justify-center items-center gap-12 text-white/40 text-xs font-bold uppercase tracking-widest">
-            <a href="https://x.com/i_am_dhruv" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
-              <Twitter className="w-4 h-4" />
+        <footer className="space-y-8 bg-transparent px-8 pb-20 pt-72 text-center pointer-events-auto">
+          <div className="flex items-center justify-center gap-12 text-xs font-bold uppercase tracking-widest text-white/40">
+            <a href="https://x.com/i_am_dhruv" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 transition-colors hover:text-white">
+              <Twitter className="h-4 w-4" />
               Twitter
             </a>
-            <a href="https://www.linkedin.com/in/iam-dhruv" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
-              <Linkedin className="w-4 h-4" />
+            <a href="https://www.linkedin.com/in/iam-dhruv" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 transition-colors hover:text-white">
+              <Linkedin className="h-4 w-4" />
               LinkedIn
             </a>
-            <a href="https://github.com/i-am-dhruv" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
-              <Github className="w-4 h-4" />
+            <a href="https://github.com/i-am-dhruv" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 transition-colors hover:text-white">
+              <Github className="h-4 w-4" />
               GitHub
             </a>
           </div>
-          <p className="text-white/20 text-[10px] uppercase tracking-[0.5em]">
-            © 2024 THE HORNET. All Rights Reserved.
+          <p className="text-[10px] uppercase tracking-[0.5em] text-white/20">
+            © 2024 MECHATECH INTERNATIONAL. ALL RIGHTS RESERVED.
           </p>
         </footer>
       </div>

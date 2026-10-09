@@ -163,16 +163,22 @@ function Scene() {
               maxDepthThreshold={1.4}
               color="#080808"
               metalness={0.9}
+              mirror={0}
               normalMap={normalMap}
-              normalScale={[0.15, 0.15]}
+              normalScale={new THREE.Vector2(0.15, 0.15)}
           />
         </mesh>
 
       </Suspense>
 
-      <EffectComposer disableNormalPass>
+      <EffectComposer>
         <Bloom intensity={0.8} luminanceThreshold={0.1} luminanceSmoothing={0.9} mipmapBlur />
-        <ChromaticAberration blendFunction={BlendFunction.SCREEN} offset={[0.0008, 0.0008]} />
+        <ChromaticAberration
+          blendFunction={BlendFunction.SCREEN}
+          offset={new THREE.Vector2(0.0008, 0.0008)}
+          radialModulation={false}
+          modulationOffset={0.0}
+        />
         <Noise opacity={0.04} />
         <Vignette eskil={false} offset={0.1} darkness={1.2} />
       </EffectComposer>
@@ -193,7 +199,7 @@ export default function ModelViewerClient() {
         }} 
         className="h-full w-full" 
         shadows 
-        dpr={[1, 2]}
+        dpr={[1, 2] as [number, number]}
       >
         <Scene />
       </Canvas>

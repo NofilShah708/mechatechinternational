@@ -1,10 +1,11 @@
-import type {Metadata} from 'next';
-import './globals.css';
+import type { Metadata } from "next";
+import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'THE HORNET',
-  description: 'A minimal and clean 3D model viewer with interactive controls and AI-powered descriptions.',
+  title: "MechaTech International | HVAC Engineers, Manufacturers & Contractors",
+  description:
+    "MechaTech International provides HVAC design, manufacturing, installation, and maintenance services for residential, commercial, and industrial projects in Karachi and beyond.",
 };
 
 export default function RootLayout({
@@ -17,9 +18,9 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
       </head>
-      <body className="font-body antialiased">
+      <body className="font-body antialiased bg-slate-950 text-white">
         {children}
         <Toaster />
       </body>
